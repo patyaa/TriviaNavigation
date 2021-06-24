@@ -9,12 +9,8 @@ import android.view.ViewGroup
 import android.view.LayoutInflater
 import androidx.navigation.Navigation
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TitleFragemen.newInstance] factory method to
- * create an instance of this fragment.
- */
-class TitleFragement : Fragment() {
+
+class TitleFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,7 +20,7 @@ class TitleFragement : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_title, container, false)
         binding.playButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(
-                R.id.action_titleFragement_to_gameFragment))
+                R.id.action_titleFragment_to_gameFragment))
         return binding.root
     }
 

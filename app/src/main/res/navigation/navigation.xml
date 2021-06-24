@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/titleFragement">
+    app:startDestination="@id/titleFragment">
 
     <fragment
-        android:id="@+id/titleFragement"
-        android:name="com.example.android.navigation.TitleFragement"
-        android:label="fragment_title_fragement"
-        tools:layout="@layout/fragment_title_fragement" >
+        android:id="@+id/titleFragment"
+        android:name="com.example.android.navigation.TitleFragment"
+        android:label="fragment_title_fragment"
+        tools:layout="@layout/fragment_title_fragment" >
         <action
-            android:id="@+id/action_titleFragement_to_gameFragment"
+            android:id="@+id/action_titleFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
     </fragment>
 
@@ -22,10 +22,15 @@
         tools:layout="@layout/fragment_game" >
         <action
             android:id="@+id/action_gameFragment_to_gameOverFragment"
-            app:destination="@id/gameOverFragment" />
+            app:destination="@id/gameOverFragment"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="true" />
+
         <action
-            android:id="@+id/action_gameFragment_to_gameWonFragement2"
-            app:destination="@id/gameWonFragement" />
+            android:id="@+id/action_gameFragment_to_gameWonFragment2"
+            app:destination="@id/gameWonFragment"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 
 
@@ -33,11 +38,26 @@
         android:id="@+id/gameOverFragment"
         android:name="com.example.android.navigation.GameOverFragment"
         android:label="fragment_game_over"
-        tools:layout="@layout/fragment_game_over"/>
+        tools:layout="@layout/fragment_game_over">
+
+        <action
+            android:id="@+id/action_gameOverFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/titleFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
     <fragment
-        android:id="@+id/gameWonFragement"
+        android:id="@+id/gameWonFragment"
         android:name="com.example.android.navigation.GameWonFragment"
         android:label="fragment_game_won"
-        tools:layout="@layout/fragment_game_won"/>
+        tools:layout="@layout/fragment_game_won" >
+
+        <action
+            android:id="@+id/action_gameWonFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/titleFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
 
 </navigation>
